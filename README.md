@@ -39,6 +39,17 @@ A Claude Code skill. Claude reads your project, writes README copy a visitor get
 
 You review the README and the GIFs. Nothing is committed or pushed until you say so.
 
+## Examples
+
+Four READMEs built the same way: a hero, a before and after, and a how it works, rendered frame by frame from HTML. Each also adds real recordings of the tool working.
+
+| README | What it shows |
+| :--- | :--- |
+| [AI Second Brain](https://github.com/BrianArfi/ai-second-brain#readme) | A PM's Friday before and after, plus a real dashboard and inbox recording |
+| [AI Prototype Kit](https://github.com/BrianArfi/ai-prototype-kit#readme) | Comments pinned on a prototype, and the revise-from-comments loop |
+| [id-voice-gate](https://github.com/BrianArfi/id-voice-gate#readme) | Indonesian AI text that reads like a translation, caught and rewritten |
+| [artifact-comments](https://github.com/BrianArfi/artifact-comments#readme) | Figma-style comments on any HTML page, and the owner tools |
+
 ## Quick start
 
 See it render this README's own GIFs. You need Python 3.9+ and no account.
