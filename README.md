@@ -41,7 +41,7 @@ You review the README and the GIFs. Nothing is committed or pushed until you say
 
 ## Examples
 
-Four READMEs built the same way: a hero, a before and after, and a how it works, rendered frame by frame from HTML. Each also adds real recordings of the tool working.
+Each has a hero, a before and after, and a how it works GIF, plus real recordings of the tool working.
 
 | README | What it shows |
 | :--- | :--- |
