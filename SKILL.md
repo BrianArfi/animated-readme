@@ -18,23 +18,39 @@ GIFs, assemble the README, and show it to the user before anything is committed 
    done or only on a branch is not "what it does".
 2. **Write the copy** to `KIT/docs/writing-guide.md`. It sets the README order, the voice and
    the words to avoid. Draft the copy in the chat first and keep it short.
-3. **Fill the scenes.** Copy `KIT/readme-scenes.json` to the project root and replace every
+3. **Ask which style, and show the gallery.** Do not pick a look for the user. Copy
+   `KIT/assets/style-gallery.html` somewhere they can open (in an AI Second Brain workspace, into the
+   workspace, for example `inbox/<date>-style-gallery/index.html`) and give the **absolute** path. Ask
+   in plain words: "Open this, click the style you like and paste me the line it gives you (for
+   example `style: clay`). Or tell me what the project is and I will suggest one." Seventeen choices do
+   not fit a multiple-choice question, so ask in text.
+   - They name a style: put its key in `readme-scenes.json` as `"style"`.
+   - "Suggest": pick ONE, with one line of why. Developer tools fit `terminal`, `ascii`, `blueprint`,
+     `holo`. A friendly product fits `clay`, `cutpaper`, `brutalist`. A serious or finance product
+     fits `typographic`, `artdeco`, `glass`. Let them overrule.
+   - "Keep my colours" or "same as before": leave `"style"` out. That is the original look, recoloured
+     only by `theme`.
+   - They do not care: use `brutalist` with their `theme`, and say so in one line.
+   The style key is in `readme-scenes.json`, so a later `render` keeps it.
+4. **Fill the scenes.** Copy `KIT/readme-scenes.json` to the project root and replace every
    `data` block with this project's copy. Three templates are available:
    - `hero` (1600 x 800): headline, subline, a terminal that types a prompt, a result card.
    - `before-after` (1200 x 680): up to six pain cards, a wipe, then a terminal and up to five outcomes.
    - `how-it-works` (1200 x 660): three or four steps left to right, then a loop line.
-   Set the project's own colours in `theme`. Write the `alt` for every scene: what the GIF shows,
+   Set the style in `style` (see step 3). The shipped `readme-scenes.json` carries a green `theme`:
+   delete that block when a style is chosen, because `theme` wins over the style's palette. Keep
+   `theme` only when the project has brand colours that must override the style. Write the `alt` for every scene: what the GIF shows,
    in the order it happens, for someone who cannot see it.
-4. **Render.** `python KIT/scripts/render.py --check`, then `python KIT/scripts/render.py`.
+5. **Render.** `python KIT/scripts/render.py --check`, then `python KIT/scripts/render.py`.
    Open the GIFs or the still PNGs and look at them. Fix overflowing text by shortening the copy,
    never by shrinking the template.
-5. **Assemble the README** from `readme-snippets.md`, which holds the image line and alt text for
+6. **Assemble the README** from `readme-snippets.md`, which holds the image line and alt text for
    each GIF. Keep install and usage sections that already work; move them below the story.
-6. **Show the user** the README and the GIFs. Commit and push only after they approve.
+7. **Show the user** the README and the GIFs. Commit and push only after they approve.
 
 ## Tools
 
-- `python KIT/scripts/render.py [--config PATH] [--only NAME] [--check]`: render every scene,
+- `python KIT/scripts/render.py [--config PATH] [--only NAME] [--check] [--list-styles]`: render every scene,
   write still PNGs where asked, warn over 4 MB, and write `readme-snippets.md`.
 - `python KIT/scripts/record_html.py page.html out.gif --w W --h H --dur S`: record any animated
   HTML page you wrote yourself, with the same deterministic engine. `--still S` writes one PNG.
@@ -51,4 +67,7 @@ GIFs, assemble the README, and show it to the user before anything is committed 
 - **Every GIF has alt text** that describes what happens, not "demo" or "screenshot".
 - **Illustrations say so.** A scene that shows a typical or sample situation carries a caption
   like "Illustration of a typical project README." Never present a drawing as a real screen.
+- **The user chooses the style.** Never pick one silently unless they say to choose for them.
+  `KIT/assets/style-gallery.html` is a shared copy (same page, same keys as `explainer-video` and
+  `mockup`): do not edit it here.
 - **Nothing is pushed without approval.** A README is public the moment it reaches the default branch.

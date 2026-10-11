@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+- 17 styles for the scenes, chosen with a new `style` key in `readme-scenes.json`: math, typographic, cutpaper, sketchbook, riso, terminal, isometric, blueprint, brutalist (neo brutalism), whiteboard, liquid, holo, glass, clay, ascii, pixel, artdeco. Without `style` the original look is unchanged.
+- `assets/style-gallery.html`: one static page with a live sample of every style, to choose from by eye.
+- The skill now asks which style to use and shows the gallery before it fills the scenes.
+
 ## [0.1.0] - 2026-10-02
 
 ### Added
